@@ -34,14 +34,20 @@ void typeChar(char val);
 int fd;  // seen by all subroutines
 
 
-void print_lcd(){
+void print_lcd(float TI, float TE, float TR){
 
-  ClrLcd();
-  lcdLoc(LINE1);
-  typeln("Teste");
-  lcdLoc(LINE2);
-  typeln("  Teste");
-  delay(2000);
+    delay(2000);
+    ClrLcd();
+  
+    char str[20];
+
+    lcdLoc(LINE1);
+    sprintf(str, "TE:%3.2f TI:%3.2f", TI, TE);
+    typeln(str);
+
+    lcdLoc(LINE2);
+    sprintf(str, "TR:%3.2f", TR);
+    typeln(str);
 
 
 }
@@ -172,6 +178,11 @@ void lcd_toggle_enable(int bits)   {
 
 
 void lcd_init()   {
+
+  if(wiringPiSetup() == -1)
+    exit(1);
+  fd = wiringPiI2CSetup(I2C_ADDR);
+
   // Initialise display
   lcd_byte(0x33, LCD_CMD); // Initialise
   lcd_byte(0x32, LCD_CMD); // Initialise
