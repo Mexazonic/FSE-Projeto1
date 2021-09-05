@@ -34,7 +34,7 @@ void typeChar(char val);
 int fd;  // seen by all subroutines
 
 
-print_lcd(){
+void print_lcd(){
 
   ClrLcd();
   lcdLoc(LINE1);
