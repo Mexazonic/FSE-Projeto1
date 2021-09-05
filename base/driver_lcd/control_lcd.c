@@ -1,18 +1,5 @@
 
-/*
-*
-* by Lewis Loflin www.bristolwatch.com lewis@bvu.net
-* http://www.bristolwatch.com/rpi/i2clcd.htm
-* Using wiringPi by Gordon Henderson
-*
-*
-* Port over lcd_i2c.py to C and added improvements.
-* Supports 16x2 and 20x4 screens.
-* This was to learn now the I2C lcd displays operate.
-* There is no warrenty of any kind use at your own risk.
-*
-*/
-
+#include "func_lcd.h"
 #include <wiringPiI2C.h>
 #include <wiringPi.h>
 #include <stdlib.h>
@@ -46,61 +33,73 @@ void typeln(const char *s);
 void typeChar(char val);
 int fd;  // seen by all subroutines
 
-int main()   {
 
-  if (wiringPiSetup () == -1) exit (1);
+print_lcd(){
 
-  fd = wiringPiI2CSetup(I2C_ADDR);
+  ClrLcd();
+  lcdLoc(LINE1);
+  typeln("Teste");
+  lcdLoc(LINE2);
+  typeln("  Teste");
+  delay(2000);
 
-  //printf("fd = %d ", fd);
-
-  lcd_init(); // setup LCD
-
-  char array1[] = "Hello world!";
-
-  while (1)   {
-
-    lcdLoc(LINE1);
-    typeln("Using wiringPi");
-    lcdLoc(LINE2);
-    typeln("Geany editor.");
-
-    delay(2000);
-    ClrLcd();
-    lcdLoc(LINE1);
-    typeln("I2c  Programmed");
-    lcdLoc(LINE2);
-    typeln("in C not Python.");
-
-    delay(2000);
-    ClrLcd();
-    lcdLoc(LINE1);
-    typeln("Arduino like");
-    lcdLoc(LINE2);
-    typeln("fast and easy.");
-
-    delay(2000);
-    ClrLcd();
-    lcdLoc(LINE1);
-    typeln(array1);
-
-    delay(2000);
-    ClrLcd(); // defaults LINE1
-    typeln("Int  ");
-    int value = 20125;
-    typeInt(value);
-
-    delay(2000);
-    lcdLoc(LINE2);
-    typeln("Float ");
-    float FloatVal = 10045.25989;
-    typeFloat(FloatVal);
-    delay(2000);
-  }
-
-  return 0;
 
 }
+// int main()   {
+
+//   if (wiringPiSetup () == -1) exit (1);
+
+//   fd = wiringPiI2CSetup(I2C_ADDR);
+
+//   //printf("fd = %d ", fd);
+
+//   lcd_init(); // setup LCD
+
+//   char array1[] = "Hello world!";
+
+//   while (1)   {
+
+//     lcdLoc(LINE1);
+//     typeln("Using wiringPi");
+//     lcdLoc(LINE2);
+//     typeln("Geany editor.");
+
+//     delay(2000);
+//     ClrLcd();
+//     lcdLoc(LINE1);
+//     typeln("I2c  Programmed");
+//     lcdLoc(LINE2);
+//     typeln("in C not Python.");
+
+//     delay(2000);
+//     ClrLcd();
+//     lcdLoc(LINE1);
+//     typeln("Arduino like");
+//     lcdLoc(LINE2);
+//     typeln("fast and easy.");
+
+//     delay(2000);
+//     ClrLcd();
+//     lcdLoc(LINE1);
+//     typeln(array1);
+
+//     delay(2000);
+//     ClrLcd(); // defaults LINE1
+//     typeln("Int  ");
+//     int value = 20125;
+//     typeInt(value);
+
+//     delay(2000);
+//     lcdLoc(LINE2);
+//     typeln("Float ");
+//     float FloatVal = 10045.25989;
+//     typeFloat(FloatVal);
+//     delay(2000);
+//   }
+
+//   return 0;
+
+// }
 
 
 // float to string
