@@ -1,7 +1,8 @@
 # Projeto 1 - 2020/2
-gcc main.c  uart_modbus/uart_modbus.c uart_modbus/crc16/crc16.c sensorBME280/bme280.c csv/csv.c driver_lcd_16x2/lcd.c PID/pid.c on_off/on_off.c gpio/gpio.c menu/menu.c -lwiringPi
+Executar Projeto
 
-bruno: gcc main.c  uart_modbus/uart_modbus.c crc16/crc16.c sensorBME280/bme280.c csv/csv.c driver_lcd_16x2/lcd.c PID/pid.c on_off/on_off.c gpio/gpio.c menu/menu.c -lwiringPi
+> gcc main.c uart/uart.c crc16/crc16.c bme/bme280.c csv/csv.c driver_lcd/lcd.c PID/pid.c on_off/on_off.c gpio/gpio.c menu/menu.c -lwiringPi controle/controle.c
+
 
 Projeto 1 da disciplina de Fundamentos de Sistemas Embarcados (2021/1)
 
