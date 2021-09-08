@@ -45,7 +45,7 @@ float solicita_modbus(char device_code, char request_code, char subcode) {
     unsigned char rx_buffer[256];
     float resposta;
 
-    rx_length = read(uart0_filestream, (void *)rx_buffer, 255);
+    rx_length = read(uart0_filestream, (void *)rx_buffer);
     memcpy(&resposta, &rx_buffer[3], 4);
     return resposta;
 }
