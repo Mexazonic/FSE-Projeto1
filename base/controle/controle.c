@@ -9,7 +9,7 @@ void controle_sistema(variaveis_sistema *params) {
 	int intensidade;
 
    	// Chave de seleção
-	params.sinal_chave == params->define_controle == 3 ? ((int) solicita_modbus(0x01, 0x23, 0xC3)) : params->sinal_chave;
+	params->sinal_chave = params->define_controle == 3 ? ((int) solicita_modbus(0x01, 0x23, 0xC3)) : params->sinal_chave;
 
     int i = CICLOS_SISTEMA;
 	while(i--) {
