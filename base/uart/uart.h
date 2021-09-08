@@ -1,10 +1,19 @@
-#ifndef UART_MODBUS_H_
-#define UART_MODBUS_H_
+#ifndef UART
+#define UART
 
-void start_uart();
-void set_options();
-unsigned char * create_buffer(char device_code, char request_code, char subcode);
-void writeModbus(unsigned char * buffer);
-int readModbus();
+#include <stdio.h>
+#include <unistd.h>         //Used for UART
+#include <fcntl.h>          //Used for UART
+#include <termios.h>        //Used for UART
+#include <string.h>
+#include "../crc16/crc16.h"
+
+int uart0_filestream;
+struct termios options;
+
+int inicia_modbus();
+float solicita_modbus(char device_code, char request_code, char subcode);
+void envia_modbus(char device_code, char request_code, char subcode, int control_value);
+void fecha_modbus();
 
 #endif /* UART_MODBUS_H_ */

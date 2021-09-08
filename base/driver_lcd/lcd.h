@@ -5,15 +5,12 @@ void lcd_init(void);
 void lcd_byte(int bits, int mode);
 void lcd_toggle_enable(int bits);
 
-// Funções
+void escreve_lcd(float ti, float te, float tr);
+void typeInt(int i);
 void typeFloat(float myFloat);
-void typeInt(int i);
-void ClrLcd(void);
 void lcdLoc(int line);
-void typeChar(char val);
-void typeInt(int i);
+void ClrLcd(void); 
 void typeln(const char *s);
+void typeChar(char val);
 
-void print_lcd(); //print lcd
-
-#endif
+#endif /* LCD_H_ */

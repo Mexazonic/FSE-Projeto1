@@ -1,5 +1,19 @@
 
-#include "func_lcd.h"
+/*
+*
+* by Lewis Loflin www.bristolwatch.com lewis@bvu.net
+* http://www.bristolwatch.com/rpi/i2clcd.htm
+* Using wiringPi by Gordon Henderson
+*
+*
+* Port over lcd_i2c.py to C and added improvements.
+* Supports 16x2 and 20x4 screens.
+* This was to learn now the I2C lcd displays operate.
+* There is no warrenty of any kind use at your own risk.
+*
+*/
+
+#include "lcd.h"
 #include <wiringPiI2C.h>
 #include <wiringPi.h>
 #include <stdlib.h>
@@ -20,93 +34,22 @@
 
 #define ENABLE  0b00000100 // Enable bit
 
-void lcd_init(void);
-void lcd_byte(int bits, int mode);
-void lcd_toggle_enable(int bits);
-
-// added by Lewis
-void typeInt(int i);
-void typeFloat(float myFloat);
-void lcdLoc(int line); //move cursor
-void ClrLcd(void); // clr LCD return home
-void typeln(const char *s);
-void typeChar(char val);
 int fd;  // seen by all subroutines
 
-
-void print_lcd(float TI, float TE, float TR){
-
-    delay(2000);
-    ClrLcd();
+void escreve_lcd(float ti, float te, float tr) {
+  delay(2000);
+  ClrLcd();
   
-    char str[20];
+  char str[20];
 
-    lcdLoc(LINE1);
-    sprintf(str, "TE:%3.2f TI:%3.2f", TI, TE);
-    typeln(str);
+  lcdLoc(LINE1);
+  sprintf(str, "TE:%3.2f TI:%3.2f", ti, te);
+  typeln(str);
 
-    lcdLoc(LINE2);
-    sprintf(str, "TR:%3.2f", TR);
-    typeln(str);
-
-
+  lcdLoc(LINE2);
+  sprintf(str, "TR:%3.2f", tr);
+  typeln(str);
 }
-// int main()   {
-
-//   if (wiringPiSetup () == -1) exit (1);
-
-//   fd = wiringPiI2CSetup(I2C_ADDR);
-
-//   //printf("fd = %d ", fd);
-
-//   lcd_init(); // setup LCD
-
-//   char array1[] = "Hello world!";
-
-//   while (1)   {
-
-//     lcdLoc(LINE1);
-//     typeln("Using wiringPi");
-//     lcdLoc(LINE2);
-//     typeln("Geany editor.");
-
-//     delay(2000);
-//     ClrLcd();
-//     lcdLoc(LINE1);
-//     typeln("I2c  Programmed");
-//     lcdLoc(LINE2);
-//     typeln("in C not Python.");
-
-//     delay(2000);
-//     ClrLcd();
-//     lcdLoc(LINE1);
-//     typeln("Arduino like");
-//     lcdLoc(LINE2);
-//     typeln("fast and easy.");
-
-//     delay(2000);
-//     ClrLcd();
-//     lcdLoc(LINE1);
-//     typeln(array1);
-
-//     delay(2000);
-//     ClrLcd(); // defaults LINE1
-//     typeln("Int  ");
-//     int value = 20125;
-//     typeInt(value);
-
-//     delay(2000);
-//     lcdLoc(LINE2);
-//     typeln("Float ");
-//     float FloatVal = 10045.25989;
-//     typeFloat(FloatVal);
-//     delay(2000);
-//   }
-
-//   return 0;
-
-// }
-
 
 // float to string
 void typeFloat(float myFloat)   {
@@ -179,8 +122,8 @@ void lcd_toggle_enable(int bits)   {
 
 void lcd_init()   {
 
-  if(wiringPiSetup() == -1)
-    exit(1);
+  if (wiringPiSetup () == -1) exit (1);
+
   fd = wiringPiI2CSetup(I2C_ADDR);
 
   // Initialise display
