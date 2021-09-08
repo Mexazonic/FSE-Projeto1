@@ -1,6 +1,7 @@
 #ifndef CSV_H_
 #define CSV_H_
-
+#include <stdio.h>
+#include <time.h>
 time_t rawtime;
 struct tm *info;
 char datetime[80];

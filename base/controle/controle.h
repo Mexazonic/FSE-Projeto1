@@ -8,6 +8,13 @@
 #include "../gpio/gpio.h"
 #include "../on_off/on_off.h"
 #include "../csv/csv.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <stdint.h>
+#include <sys/types.h>
+#include <signal.h>
 
 typedef struct  {
     float histerese;

@@ -14,7 +14,7 @@ void menu(variaveis_sistema *params) {
     
 
     printf("\n**************************\n");
-    printf("****Controle****\n")
+    printf("****Controle****\n");
     printf("1 - On_Off\n");
     printf("2 - PID\n");
     printf("3 - Chave seletora\n");
@@ -26,14 +26,14 @@ void menu(variaveis_sistema *params) {
 
     switch(define_controle) {
         case 1:
-            params->sinal_controle = 0;
+            params->sinal_chave = 0;
             printf("Digite a histerese:");
             scanf("%f", &histerese);
             params->histerese = histerese;
             printf("\n");
             break;
         case 2:
-            params->sinal_controle = 1;
+            params->sinal_chave = 1;
             printf("Digite o KP:");
             scanf("%lf", &KP);
             params->KP = KP;

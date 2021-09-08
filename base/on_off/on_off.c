@@ -21,7 +21,7 @@ double on_off(float saida_medida){
 	if(saida_medida < tr - intervalo) {
 		return sinal_de_controle_MAX;
 	} else if(saida_medida == (tr + intervalo)) {
-		return 0;
+		return 0;}
 	
 	return sinal_de_controle_MIN;
 	
