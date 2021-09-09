@@ -19,16 +19,18 @@ O menu simples apresenta a interação do usuário com seu desejo de alinhar os 
 #### PID
 ![Menu2](https://imgur.com/dRPhz1W.png)
 
+***Constantes meramente ilustrativas***
+
 ## Conclusões
-Após a setagem das variáveis começa o processo de execução do [controle do sistema](https://github.com/Mexazonic/FSE-Projeto1/blob/main/base/controle/controle.c) e a partir daí toda a lógica das bibliotecas modularizadas começam a executar. Mas por algum motivo e/ou erro na implementação mesmo após algum tempo o valor da temperatura interna permanece inalterado conforme podemos observar no gráfico abaixo:
+Após a setagem das variáveis começa o processo de execução do [controle do sistema](https://github.com/Mexazonic/FSE-Projeto1/blob/main/base/controle/controle.c) e a partir daí toda a lógica das bibliotecas modularizadas começam a ser executadas. Segue abaixo o gráfico das análises obtidas
 
-![Gráfico](https://imgur.com/aaGQChc.png)
 
-Para tentar reparar esse erro tentei obter o "log" para melhor compreensão do que poderia estar acontecendo:
+### On/Off  Gráfico
+![Gráfico onoff](https://imgur.com/Emhq2UB.png)
 
-![Debug](https://imgur.com/FCl7V78.png)
 
-Podemos notar que a intensidade do resistor é acionada entretanto não há alterações e a TI continua constante. A estrutura do csv também é montada e sua ausência é pelo experimento não ter sido concretizado de fato.
+### PID Gráfico
+![Gráfico PID](https://imgur.com/nksN6UG.png)
 
 ## Referências
 [Enunciado](https://gitlab.com/fse_fga/projetos_2021_1/projeto-1-2021-1/-/blob/main/README.md)
