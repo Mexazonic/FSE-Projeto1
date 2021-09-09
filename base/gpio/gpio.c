@@ -9,8 +9,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#define PWM_PIN_RESISTOR 23
-#define PWM_PIN_VENTOINHA 24
+#define PWM_PIN_RESISTOR 4
+#define PWM_PIN_VENTOINHA 5
 
 void configura_gpio() {
     wiringPiSetup();
