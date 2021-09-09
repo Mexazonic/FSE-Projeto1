@@ -67,6 +67,10 @@ void menu(variaveis_sistema *params) {
     params->define_temperatura_referencia = define_temperatura_referencia;
 
     switch(define_temperatura_referencia) {
+        case 1:
+            printf("Potenciômetro Ok!");
+            break;
+
         case 2:
             printf("\nDigite a Temp. de referencia:");
             scanf("%f", &temp_reference);
