@@ -1,5 +1,5 @@
 #include "controle.h"
-#define CICLOS_SISTEMA 66
+#define CICLOS_SISTEMA 600
 #include <stdio.h>
 
 void controle_sistema(variaveis_sistema *params) {
