@@ -68,7 +68,7 @@ void menu(variaveis_sistema *params) {
 
     switch(define_temperatura_referencia) {
         case 1:
-            printf("Potenciômetro Ok!");
+            printf("Potenciômetro Ok!\n");
             break;
 
         case 2:
