@@ -25,7 +25,7 @@ void liga_gpio(int intensidade) {
     {
         softPwmWrite(PWM_PIN_VENTOINHA, 0);
         softPwmWrite(PWM_PIN_RESISTOR, abs(intensidade));
-        printf("Intensidade Resistor %d: %d e Ventoinha%d: %d\n", PWM_PIN_RESISTOR, abs(intensity), PWM_PIN_AIR_COOLER, 0);
+        printf("Intensidade Resistor %d: %d e Ventoinha%d: %d\n", PWM_PIN_RESISTOR, abs(intensidade), PWM_PIN_VENTOINHA, 0);
     }
     else if (intensidade <= -40)
     {
