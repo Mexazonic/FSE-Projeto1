@@ -32,6 +32,7 @@ Podemos notar que a intensidade do resistor é acionada entretanto não há alte
 
 ## Referências
 [Enunciado](https://gitlab.com/fse_fga/projetos_2021_1/projeto-1-2021-1/-/blob/main/README.md)
+
 [Controle Liga/Desliga - Wikipedia](https://pt.wikipedia.org/wiki/Controle_liga-desliga)  
 [Controle PID - Wikipedia](https://pt.wikipedia.org/wiki/Controlador_proporcional_integral_derivativo)  
 [Driver da Bosh para o sensor BME280](https://github.com/BoschSensortec/BME280_driver)  
