@@ -1,5 +1,5 @@
 # Projeto 1 - 2020/2
-Executar Projeto
+## Executar Projeto
 
 > gcc main.c uart/uart.c crc16/crc16.c bme/bme280.c csv/csv.c driver_lcd/lcd.c PID/pid.c on_off/on_off.c gpio/gpio.c menu/menu.c -lwiringPi controle/controle.c
 
